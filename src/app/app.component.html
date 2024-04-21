@@ -18,15 +18,29 @@
       </button>
     </div>
   </form>
+
+  <div class="row mt-3 mb-3">
+    <div class="col-sm-2">
+      <select
+        class="form-select"
+        [(ngModel)]="listFilter">
+        <option value="0">All</option>
+        <option value="1">Unfulfilled</option>
+        <option value="2">Fulfilled</option>
+      </select>
+    </div>
+  </div>
+
   <div
-    *ngIf="!items.length; else showItems"
+    *ngIf="!filteredItems.length; else showItems"
     class="alert alert-secondary"
     role="alert">
     There are no wishes to display.
   </div>
+
   <ng-template #showItems>
-    <ul *ngIf="items.length" class="wish-list list-group">
-      <li *ngFor="let item of items; index as ii" class="list-group-item">
+    <ul *ngIf="filteredItems.length" class="wish-list list-group">
+      <li *ngFor="let item of filteredItems; index as ii" class="list-group-item">
         <div class="form-check">
           <label class="form-check-label">
             <input 
