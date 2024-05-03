@@ -14,17 +14,5 @@ export class AppComponent {
   ]
   title = 'Jhon Lay';
   
-  listFilter : String = '0';
-  get filteredItems() : WishItem[] {
-    let value = this.listFilter;
-
-    if(value === '0') {
-      return this.items;
-    } else if (value === '1') {
-      return this.items.filter(item => !item.isComplete);
-    } else {
-      return this.items.filter(item => item.isComplete);
-    }
-  }
-
+  filter : any = () => {};
 }
